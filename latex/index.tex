@@ -1,0 +1,12 @@
+Example of a program for Project 0 of Electronic Instrumentation Systems.
+
+The code will read a voltage signal in AN0 pin at a sampling frequency Samp\+Freq, deliver that value as the argument to the function transfer\+Function() and generate a PWM signal, where the duty-\/cycle is controller by the output of transfer\+Function() and the frequency is PWMfreq. Both Samp\+Freq and PWMfreq are defined as constants in the main().
+
+This example is distributed as a main file (in main\+Proj0.\+c) and the header files of the modules used in the project\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{timer_8h}{timer.\+h}}
+\item \mbox{\hyperlink{analog_8h}{analog.\+h}}
+\item \mbox{\hyperlink{PWM_8h}{PWM.\+h}}
+\item uart.\+h
+\item \mbox{\hyperlink{pic32conf_8h}{pic32conf.\+h}} 
+\end{DoxyItemize}

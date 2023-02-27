@@ -1,0 +1,201 @@
+\hypertarget{timer_8h}{}\doxysection{timer.\+h File Reference}
+\label{timer_8h}\index{timer.h@{timer.h}}
+
+
+Module for configuring the timers of PIC32.  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}pic32conf.\+h\char`\"{}}\newline
+Include dependency graph for timer.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}} \{ \newline
+{\bfseries DIV\+\_\+1} =0
+, {\bfseries DIV\+\_\+2}
+, {\bfseries DIV\+\_\+4}
+, {\bfseries DIV\+\_\+8}
+, \newline
+{\bfseries DIV\+\_\+16}
+, {\bfseries DIV\+\_\+32}
+, {\bfseries DIV\+\_\+64}
+, {\bfseries DIV\+\_\+256}
+ \}
+\item 
+enum \mbox{\hyperlink{timer_8h_aeb357e02112d1f87fb27cb0a87e3b917}{Type\+BTimer\+No\+\_\+t}} \{ {\bfseries Timer2} =2
+, {\bfseries Timer3}
+, {\bfseries Timer4}
+, {\bfseries Timer5}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{timer_8h_a67b159bf22a8c2131f44581b38978772}{Timer2\+Setup}} (bool Timer\+On32bit, \mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}} Prescaler, uint32\+\_\+t PR2val)
+\begin{DoxyCompactList}\small\item\em Configures Timer2 registers related the counting period. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_a45c817980f96837051a495cc44cf1b6d}\label{timer_8h_a45c817980f96837051a495cc44cf1b6d}} 
+void \mbox{\hyperlink{timer_8h_a45c817980f96837051a495cc44cf1b6d}{Timer2\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts Timer 2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_a5d6382101c600ba5acfe5e1c30b05b3f}\label{timer_8h_a5d6382101c600ba5acfe5e1c30b05b3f}} 
+void \mbox{\hyperlink{timer_8h_a5d6382101c600ba5acfe5e1c30b05b3f}{Timer2\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops Timer 2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_a49900e4efc294ccb5d989700f609d484}\label{timer_8h_a49900e4efc294ccb5d989700f609d484}} 
+int \mbox{\hyperlink{timer_8h_a49900e4efc294ccb5d989700f609d484}{Timer2\+Get\+EOC}} (void)
+\begin{DoxyCompactList}\small\item\em Gets EOC flag from Timer2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_a73446f5f5434970d8740adc467ba3fd9}\label{timer_8h_a73446f5f5434970d8740adc467ba3fd9}} 
+void \mbox{\hyperlink{timer_8h_a73446f5f5434970d8740adc467ba3fd9}{Timer2\+Clear\+EOC}} (void)
+\begin{DoxyCompactList}\small\item\em Clears EOC flag of Timer2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{timer_8h_ad243d76562556e655b851ccf99e3f18b}{Timer3\+Setup}} (\mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}} Prescaler, uint32\+\_\+t PR3val)
+\begin{DoxyCompactList}\small\item\em Configures Timer3 registers related the counting period. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_a25795457b0ffa7cf856aaf88df63125b}\label{timer_8h_a25795457b0ffa7cf856aaf88df63125b}} 
+void \mbox{\hyperlink{timer_8h_a25795457b0ffa7cf856aaf88df63125b}{Timer3\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts Timer 3. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_afabee042fd79cdabecc7e18225f9a0a6}\label{timer_8h_afabee042fd79cdabecc7e18225f9a0a6}} 
+void \mbox{\hyperlink{timer_8h_afabee042fd79cdabecc7e18225f9a0a6}{Timer3\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops Timer 3. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_af81095b7591589f091f819662d8bb522}\label{timer_8h_af81095b7591589f091f819662d8bb522}} 
+int \mbox{\hyperlink{timer_8h_af81095b7591589f091f819662d8bb522}{Timer3\+Get\+EOC}} (void)
+\begin{DoxyCompactList}\small\item\em Gets EOC flag from Timer3. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{timer_8h_ae560100c7b66811801be7ea03a5b90df}\label{timer_8h_ae560100c7b66811801be7ea03a5b90df}} 
+void \mbox{\hyperlink{timer_8h_ae560100c7b66811801be7ea03a5b90df}{Timer3\+Clear\+EOC}} (void)
+\begin{DoxyCompactList}\small\item\em Clears EOC flag of Timer3. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{timer_8h_a34a7f1282f9ae5d25d7ae07ee73de9c7}{Type\+BTimer16bit\+Get\+Config\+From\+Freq}} (uint32\+\_\+t Freq\+\_\+\+Hz, \mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}} $\ast$p\+Pre\+Scaler, uint32\+\_\+t $\ast$p\+PRx\+Val)
+\begin{DoxyCompactList}\small\item\em Computes the configuration parameters (Prescaler and PR3 value) to configure a Type B Timer to generate events at frequency Freq\+\_\+\+Hz (in Hz) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{timer_8h_a516888246e2d3b32ac5bfd89b2a10bae}{Type\+BTimer16bit\+Set\+Freq}} (\mbox{\hyperlink{timer_8h_aeb357e02112d1f87fb27cb0a87e3b917}{Type\+BTimer\+No\+\_\+t}} Timer\+No, uint32\+\_\+t Freq\+\_\+\+Hz)
+\begin{DoxyCompactList}\small\item\em Sets the counting frequency of a Type B Timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{timer_8h_a4ab089c391c1540626b052bcb89f5aca}{Type\+BTimer\+Pre\+Scaler\+Vals}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module for configuring the timers of PIC32. 
+
+\begin{DoxyAuthor}{Author}
+\+: Pedro Fonseca \href{mailto:pf@ua.pt}{\texttt{ pf@ua.\+pt}}
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+26 January 2023, 17\+:19 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{timer_8h_aeb357e02112d1f87fb27cb0a87e3b917}\label{timer_8h_aeb357e02112d1f87fb27cb0a87e3b917}} 
+\index{timer.h@{timer.h}!TypeBTimerNo\_t@{TypeBTimerNo\_t}}
+\index{TypeBTimerNo\_t@{TypeBTimerNo\_t}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TypeBTimerNo\_t}{TypeBTimerNo\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_aeb357e02112d1f87fb27cb0a87e3b917}{Type\+BTimer\+No\+\_\+t}}}
+
+IDs for TypeB Timer \mbox{\Hypertarget{timer_8h_adca065601907879cfc6cd64f00d99022}\label{timer_8h_adca065601907879cfc6cd64f00d99022}} 
+\index{timer.h@{timer.h}!TypeBTimerPreScalers\_t@{TypeBTimerPreScalers\_t}}
+\index{TypeBTimerPreScalers\_t@{TypeBTimerPreScalers\_t}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TypeBTimerPreScalers\_t}{TypeBTimerPreScalers\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}}}
+
+Values for PIC32 Type B timer prescaler ~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{timer_8h_a67b159bf22a8c2131f44581b38978772}\label{timer_8h_a67b159bf22a8c2131f44581b38978772}} 
+\index{timer.h@{timer.h}!Timer2Setup@{Timer2Setup}}
+\index{Timer2Setup@{Timer2Setup}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{Timer2Setup()}{Timer2Setup()}}
+{\footnotesize\ttfamily void Timer2\+Setup (\begin{DoxyParamCaption}\item[{bool}]{Timer\+On32bit,  }\item[{\mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}}}]{Prescaler,  }\item[{uint32\+\_\+t}]{PR2val }\end{DoxyParamCaption})}
+
+
+
+Configures Timer2 registers related the counting period. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Timer\+On32bit} & Sets the timer to 16 bit or 32 bit count (false\+: 16 bit, true\+: 32bit). \\
+\hline
+{\em Prescaler} & Prescaler value \\
+\hline
+{\em PR2val} & Value for PR2 register\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{timer_8h_a49900e4efc294ccb5d989700f609d484}{Timer2\+Get\+EOC()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{timer_8h_ad243d76562556e655b851ccf99e3f18b}\label{timer_8h_ad243d76562556e655b851ccf99e3f18b}} 
+\index{timer.h@{timer.h}!Timer3Setup@{Timer3Setup}}
+\index{Timer3Setup@{Timer3Setup}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{Timer3Setup()}{Timer3Setup()}}
+{\footnotesize\ttfamily void Timer3\+Setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}}}]{Prescaler,  }\item[{uint32\+\_\+t}]{PR3val }\end{DoxyParamCaption})}
+
+
+
+Configures Timer3 registers related the counting period. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Prescaler} & Prescaler value \\
+\hline
+{\em PR3val} & Value for PR3 register\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{timer_8h_af81095b7591589f091f819662d8bb522}{Timer3\+Get\+EOC()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{timer_8h_a34a7f1282f9ae5d25d7ae07ee73de9c7}\label{timer_8h_a34a7f1282f9ae5d25d7ae07ee73de9c7}} 
+\index{timer.h@{timer.h}!TypeBTimer16bitGetConfigFromFreq@{TypeBTimer16bitGetConfigFromFreq}}
+\index{TypeBTimer16bitGetConfigFromFreq@{TypeBTimer16bitGetConfigFromFreq}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TypeBTimer16bitGetConfigFromFreq()}{TypeBTimer16bitGetConfigFromFreq()}}
+{\footnotesize\ttfamily int Type\+BTimer16bit\+Get\+Config\+From\+Freq (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Freq\+\_\+\+Hz,  }\item[{\mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}} $\ast$}]{p\+Pre\+Scaler,  }\item[{uint32\+\_\+t $\ast$}]{p\+PRx\+Val }\end{DoxyParamCaption})}
+
+
+
+Computes the configuration parameters (Prescaler and PR3 value) to configure a Type B Timer to generate events at frequency Freq\+\_\+\+Hz (in Hz) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Freq\+\_\+\+Hz} & Desired frequency, in Hz \\
+\hline
+{\em p\+Pre\+Scaler} & Prescaler index (bits to be programmed in PSCK) \\
+\hline
+{\em p\+PRx\+Val} & Value for PRx \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{timer_8h_a516888246e2d3b32ac5bfd89b2a10bae}\label{timer_8h_a516888246e2d3b32ac5bfd89b2a10bae}} 
+\index{timer.h@{timer.h}!TypeBTimer16bitSetFreq@{TypeBTimer16bitSetFreq}}
+\index{TypeBTimer16bitSetFreq@{TypeBTimer16bitSetFreq}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TypeBTimer16bitSetFreq()}{TypeBTimer16bitSetFreq()}}
+{\footnotesize\ttfamily int Type\+BTimer16bit\+Set\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_aeb357e02112d1f87fb27cb0a87e3b917}{Type\+BTimer\+No\+\_\+t}}}]{Timer\+No,  }\item[{uint32\+\_\+t}]{Freq\+\_\+\+Hz }\end{DoxyParamCaption})}
+
+
+
+Sets the counting frequency of a Type B Timer. 
+
+If the requested frequency is not possible, the Timer registers are not changed and the function returns NOK. When the requested frequency is possible, the Timer{\itshape x} ({\itshape x}=2..5) registers are set accordingly and the function returns OK.
+
+If some time number is not implemented, Type\+BTimer\+Set\+Freq returns NOK
+
+
+\begin{DoxyParams}{Parameters}
+{\em Timer\+No} & Number of Timer to configure \\
+\hline
+{\em Freq\+\_\+\+Hz} & Requested frequency (in Hz) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK\+: sucess; NOK\+: failure 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{timer_8h_a4ab089c391c1540626b052bcb89f5aca}\label{timer_8h_a4ab089c391c1540626b052bcb89f5aca}} 
+\index{timer.h@{timer.h}!TypeBTimerPreScalerVals@{TypeBTimerPreScalerVals}}
+\index{TypeBTimerPreScalerVals@{TypeBTimerPreScalerVals}!timer.h@{timer.h}}
+\doxysubsubsection{\texorpdfstring{TypeBTimerPreScalerVals}{TypeBTimerPreScalerVals}}
+{\footnotesize\ttfamily const uint32\+\_\+t Type\+BTimer\+Pre\+Scaler\+Vals\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+Divider values for the Prescaler register in Type B Timers. 

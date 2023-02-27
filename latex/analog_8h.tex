@@ -1,0 +1,123 @@
+\hypertarget{analog_8h}{}\doxysection{analog.\+h File Reference}
+\label{analog_8h}\index{analog.h@{analog.h}}
+
+
+Module for handling PIC32 Analog-\/to-\/\+Digital Converter.  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for analog.\+h\+:
+% FIG 0
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147}{ADCTrigger\+Src\+\_\+t}} \{ \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a672fe86def80cbc788524a82294bc473}{Src\+Manual}} = 0b000
+, \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147acb5f9d71898f0fdbe92c49ac6ce84f5c}{Src\+Int0}} = 0b001
+, \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a9744cdaf320c3620d8ef3274c41ea600}{Src\+Timer3}} = 0b010
+, \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a03d83aa9c290ef228b2df4553dd11415}{Src\+Auto}} = 0b111
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{analog_8h_a2322ff62a6fde9db482af4177385bc86}{ADCconfig}} (uint8\+\_\+t Source\+Channel, \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147}{ADCTrigger\+Src\+\_\+t}} Conversion\+Trigger\+Source, uint8\+\_\+t Sample\+Time)
+\begin{DoxyCompactList}\small\item\em Configures analog input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{analog_8h_ac6f4824ca27d23a027c01754ce96da65}\label{analog_8h_ac6f4824ca27d23a027c01754ce96da65}} 
+void \mbox{\hyperlink{analog_8h_ac6f4824ca27d23a027c01754ce96da65}{ADCoff}} (void)
+\begin{DoxyCompactList}\small\item\em Turns ADC module off. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{analog_8h_a354c736b0987e1ecfbeec922144c4c2b}\label{analog_8h_a354c736b0987e1ecfbeec922144c4c2b}} 
+void \mbox{\hyperlink{analog_8h_a354c736b0987e1ecfbeec922144c4c2b}{ADCon}} (void)
+\begin{DoxyCompactList}\small\item\em Turns ADC module on. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{analog_8h_adf27d8a11325eeaeba764f70db858278}\label{analog_8h_adf27d8a11325eeaeba764f70db858278}} 
+uint16\+\_\+t \mbox{\hyperlink{analog_8h_adf27d8a11325eeaeba764f70db858278}{ADCRead\+Manual}} (void)
+\begin{DoxyCompactList}\small\item\em Reads ADC in manual mode. Starts conversion and returns conversion value. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{analog_8h_a7203594e3d19aa130cb9fb7bf85a3f51}{ADCRead\+Retentive}} (void)
+\begin{DoxyCompactList}\small\item\em Reads ADC with automatic trigger (any mode different from Src\+Manual) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module for handling PIC32 Analog-\/to-\/\+Digital Converter. 
+
+\begin{DoxyAuthor}{Author}
+\+: Pedro Fonseca \href{mailto:pf@ua.pt}{\texttt{ pf@ua.\+pt}}
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+29 January 2023, 14\+:32 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147}\label{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147}} 
+\index{analog.h@{analog.h}!ADCTriggerSrc\_t@{ADCTriggerSrc\_t}}
+\index{ADCTriggerSrc\_t@{ADCTriggerSrc\_t}!analog.h@{analog.h}}
+\doxysubsubsection{\texorpdfstring{ADCTriggerSrc\_t}{ADCTriggerSrc\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147}{ADCTrigger\+Src\+\_\+t}}}
+
+Values for the Trigger Event Source \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SrcManual@{SrcManual}!analog.h@{analog.h}}\index{analog.h@{analog.h}!SrcManual@{SrcManual}}}\mbox{\Hypertarget{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a672fe86def80cbc788524a82294bc473}\label{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a672fe86def80cbc788524a82294bc473}} 
+Src\+Manual&Conversion starts manually (clearing SAMP bit) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SrcInt0@{SrcInt0}!analog.h@{analog.h}}\index{analog.h@{analog.h}!SrcInt0@{SrcInt0}}}\mbox{\Hypertarget{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147acb5f9d71898f0fdbe92c49ac6ce84f5c}\label{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147acb5f9d71898f0fdbe92c49ac6ce84f5c}} 
+Src\+Int0&Conversion starts on active transition of INT0 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SrcTimer3@{SrcTimer3}!analog.h@{analog.h}}\index{analog.h@{analog.h}!SrcTimer3@{SrcTimer3}}}\mbox{\Hypertarget{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a9744cdaf320c3620d8ef3274c41ea600}\label{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a9744cdaf320c3620d8ef3274c41ea600}} 
+Src\+Timer3&Conversion starts on End-\/of-\/\+Count of Timer 3 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SrcAuto@{SrcAuto}!analog.h@{analog.h}}\index{analog.h@{analog.h}!SrcAuto@{SrcAuto}}}\mbox{\Hypertarget{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a03d83aa9c290ef228b2df4553dd11415}\label{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147a03d83aa9c290ef228b2df4553dd11415}} 
+Src\+Auto&Conversion runs continuously \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{analog_8h_a2322ff62a6fde9db482af4177385bc86}\label{analog_8h_a2322ff62a6fde9db482af4177385bc86}} 
+\index{analog.h@{analog.h}!ADCconfig@{ADCconfig}}
+\index{ADCconfig@{ADCconfig}!analog.h@{analog.h}}
+\doxysubsubsection{\texorpdfstring{ADCconfig()}{ADCconfig()}}
+{\footnotesize\ttfamily void ADCconfig (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Source\+Channel,  }\item[{\mbox{\hyperlink{analog_8h_ab40e2f2eed4462ba3b17dd8edd412147}{ADCTrigger\+Src\+\_\+t}}}]{Conversion\+Trigger\+Source,  }\item[{uint8\+\_\+t}]{Sample\+Time }\end{DoxyParamCaption})}
+
+
+
+Configures analog input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Source\+Channel} & Channel to convert (0 to 15) \\
+\hline
+{\em Conversion\+Trigger\+Source} & Trigger source for the ADC. \\
+\hline
+{\em Sample\+Time} & Sample time for auto mode (only relevant for Auto mode). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing
+\end{DoxyReturn}
+ADCconfig assumes that all PORT B pins may be used for analog inputs. The function turns ADC module off, prior to configuration, and turns the module on again, at the end.
+
+Some configurations are static\+:
+\begin{DoxyItemize}
+\item All 16 pins (AN0 to AN15) configured to analog input.
+\item Format is Integer 16-\/bit
+\item Voltage sources are AVdd and AVss
+\item No scanning of multiple inputs
+\item Number of conversions per interrupt = 1
+\item Buffer fill mode\+: one 16-\/word buffer
+\item Always use MUX A
+\item ADC clock source is PB Clock
+\item ADC clock prescaler is set to 7 
+\end{DoxyItemize}\mbox{\Hypertarget{analog_8h_a7203594e3d19aa130cb9fb7bf85a3f51}\label{analog_8h_a7203594e3d19aa130cb9fb7bf85a3f51}} 
+\index{analog.h@{analog.h}!ADCReadRetentive@{ADCReadRetentive}}
+\index{ADCReadRetentive@{ADCReadRetentive}!analog.h@{analog.h}}
+\doxysubsubsection{\texorpdfstring{ADCReadRetentive()}{ADCReadRetentive()}}
+{\footnotesize\ttfamily uint16\+\_\+t ADCRead\+Retentive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads ADC with automatic trigger (any mode different from Src\+Manual) 
+
+Requires previous configuration with \mbox{\hyperlink{analog_8h_a2322ff62a6fde9db482af4177385bc86}{ADCconfig()}}. 

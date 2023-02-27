@@ -1,0 +1,90 @@
+\hypertarget{PWM_8h}{}\doxysection{PWM.\+h File Reference}
+\label{PWM_8h}\index{PWM.h@{PWM.h}}
+
+
+Module to generate PWM signals.  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+Include dependency graph for PWM.\+h\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{PWM_8h_aa7a94affd1981724911cc06216e80c5d}{PWMconfig\+PR2}} (\mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}} T2\+Prescaler, uint16\+\_\+t T2\+PR2\+Val)
+\begin{DoxyCompactList}\small\item\em Configures Timer2 and OC2 module to generate a PWM signal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{PWM_8h_a0c8b7bb86ae3eb77011e33765902aad2}{PWMconfig\+Freq}} (uint16\+\_\+t Freq)
+\begin{DoxyCompactList}\small\item\em Configures Timer2 and OC2 module to generate a PWM signal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{PWM_8h_a114d4b20a0d605194bbf705e3c2d7cae}{PWMset\+Duty\+Cycle}} (uint8\+\_\+t Duty\+Cycle)
+\begin{DoxyCompactList}\small\item\em Sets the duty-\/cycle of PWM output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module to generate PWM signals. 
+
+\begin{DoxyAuthor}{Author}
+\+: Pedro Fonseca \href{mailto:pf@ua.pt}{\texttt{ pf@ua.\+pt}}
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+January 29, 2023, 6\+:11 PM
+\end{DoxyDate}
+This PWM module uses Timer2 and generates output on OC2 pin. PWM is configured with \mbox{\hyperlink{PWM_8h_a0c8b7bb86ae3eb77011e33765902aad2}{PWMconfig\+Freq()}} or \mbox{\hyperlink{PWM_8h_aa7a94affd1981724911cc06216e80c5d}{PWMconfig\+PR2()}}, which must be called before using the PWM signal. PWM duty-\/cycle is defined by calling \mbox{\hyperlink{PWM_8h_a114d4b20a0d605194bbf705e3c2d7cae}{PWMset\+Duty\+Cycle()}}. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{PWM_8h_a0c8b7bb86ae3eb77011e33765902aad2}\label{PWM_8h_a0c8b7bb86ae3eb77011e33765902aad2}} 
+\index{PWM.h@{PWM.h}!PWMconfigFreq@{PWMconfigFreq}}
+\index{PWMconfigFreq@{PWMconfigFreq}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{PWMconfigFreq()}{PWMconfigFreq()}}
+{\footnotesize\ttfamily void PWMconfig\+Freq (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{Freq }\end{DoxyParamCaption})}
+
+
+
+Configures Timer2 and OC2 module to generate a PWM signal. 
+
+Configures PWM module and Timer2 for generating a PWM signal with duty-\/cycle defined by \mbox{\hyperlink{PWM_8h_a114d4b20a0d605194bbf705e3c2d7cae}{PWMset\+Duty\+Cycle()}} and a frequency Freq (in Hz).
+
+\mbox{\hyperlink{PWM_8h_a0c8b7bb86ae3eb77011e33765902aad2}{PWMconfig\+Freq()}} performs the required initialisations and turns OC2 module on. \mbox{\hyperlink{timer_8h_a45c817980f96837051a495cc44cf1b6d}{Timer2\+Start()}} must be called afterwards for starting Timer2.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Freq} & PWM Frequency \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{PWM_8h_aa7a94affd1981724911cc06216e80c5d}\label{PWM_8h_aa7a94affd1981724911cc06216e80c5d}} 
+\index{PWM.h@{PWM.h}!PWMconfigPR2@{PWMconfigPR2}}
+\index{PWMconfigPR2@{PWMconfigPR2}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{PWMconfigPR2()}{PWMconfigPR2()}}
+{\footnotesize\ttfamily void PWMconfig\+PR2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timer_8h_adca065601907879cfc6cd64f00d99022}{Type\+BTimer\+Pre\+Scalers\+\_\+t}}}]{T2\+Prescaler,  }\item[{uint16\+\_\+t}]{T2\+PR2\+Val }\end{DoxyParamCaption})}
+
+
+
+Configures Timer2 and OC2 module to generate a PWM signal. 
+
+Configuration of PWM module and Timer2 for generating a PWM signal with duty-\/cycle defined by \mbox{\hyperlink{PWM_8h_a114d4b20a0d605194bbf705e3c2d7cae}{PWMset\+Duty\+Cycle()}} by setting the timer prescaler and PR2 register..
+
+\mbox{\hyperlink{PWM_8h_aa7a94affd1981724911cc06216e80c5d}{PWMconfig\+PR2()}} performs the required initialisations and turns OC2 module on. \mbox{\hyperlink{timer_8h_a45c817980f96837051a495cc44cf1b6d}{Timer2\+Start()}} must be called afterwards for starting Timer2.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T2\+Prescaler} & Prescaler value for Timer2 \\
+\hline
+{\em T2\+PR2\+Val} & Value for PR2 register \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{PWM_8h_a114d4b20a0d605194bbf705e3c2d7cae}\label{PWM_8h_a114d4b20a0d605194bbf705e3c2d7cae}} 
+\index{PWM.h@{PWM.h}!PWMsetDutyCycle@{PWMsetDutyCycle}}
+\index{PWMsetDutyCycle@{PWMsetDutyCycle}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{PWMsetDutyCycle()}{PWMsetDutyCycle()}}
+{\footnotesize\ttfamily void PWMset\+Duty\+Cycle (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Duty\+Cycle }\end{DoxyParamCaption})}
+
+
+
+Sets the duty-\/cycle of PWM output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Duty\+Cycle} & Duty-\/\+Cycle value (0 to 100) \\
+\hline
+\end{DoxyParams}

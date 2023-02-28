@@ -7,10 +7,11 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include "analog.h"
 
 
-//void ADCconfig(uint8_t SourceChannel, ADCTriggerSrc_t ConversionTriggerSource, uint8_t SampleTime){
-    /* TRISB = (TRISB & 0x0) | (0x1 << SourceChannel);
+void ADCconfig(uint8_t SourceChannel, ADCTriggerSrc_t ConversionTriggerSource, uint8_t SampleTime){
+    TRISB = (TRISB & 0x0) | (0x1 << SourceChannel);
     AD1PCFG = AD1PCFG & 0x0; // all RB ports configured as analog input 
     AD1CON2bits.VCFG = 0; // Voltage sources are AVdd and AVss
     
@@ -20,9 +21,9 @@
     AD1CHSbits.CH0SA = SourceChannel; //Positive Input Select bits for MUX A Multiplexer Setting
     AD1CON3bits.ADRC = 0; // ADC clock source is PB Clock
     AD1CON3bits.ADCS = 7; // ADC clock prescaler is set to 7
-   */
+   
    // no scanning of multiple inputs
-//}
+}
 
 /**
  * \brief Turns ADC module off

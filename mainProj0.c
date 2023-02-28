@@ -27,14 +27,16 @@
 
 /* Configuration bits */
 
-#include "../SIE_Proj0_demo.X/../common/config_bits.h"
+//#include "../SIE_Proj0_demo.X/../common/config_bits.h"
+#include "../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/config_bits.h"
+#include "../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/UART/uart.h"
 //#include "../common/config_bits.h"
 #include <xc.h>
 #include <stdint.h>
 #include <stdio.h>
 
 //#include "../common/UART/uart.h"
-#include "../SIE_Proj0_demo.X/../common/UART/uart.h"
+//#include "../SIE_Proj0_demo.X/../common/UART/uart.h"
 #include "pic32conf.h"
 #include "timer.h" 
 #include "analog.h"
@@ -53,6 +55,7 @@
 uint16_t tf_direct(uint16_t inVal);
 
 
+
 /**
  * Average of n samples
  * 
@@ -64,22 +67,84 @@ uint16_t tf_direct(uint16_t inVal);
 uint16_t tf_avgNSamples(uint16_t inVal);
 
 int main(void) {
-    int cont = 0;
-    TypeBTimer16bitSetFreq(2, 10);
-    // Set RA3 as output
-    TRISAbits.TRISA3 = 0;
-    //UartInit(PBC, 115200L);
-    TMR2 = 0;
-    PutChar('x');
+  /*
+     * Function pointer to select the transfer functions
+     */
     
-    while(1){
-        while(Timer2GetEOC() == 0);
-        cont++;
-        if(cont % 10 == 0){
-            PORTAbits.RA3 = !PORTAbits.RA3;
-        }
+    uint16_t (*transferFunction)(uint16_t);
+    
+    /**************************************************************
+     *
+     * Definition of constants 
+     *
+     */
+    const int SampFreq = 050;       /**< Sampling frequency (in Hz) */
+    const int PWMFreq = 2000;       /**< PWM frequency (in Hz) */
+    
+    /************************************************************** 
+     * 
+     * Configuration section
+     * 
+     */
+
+    /* Configure UART */
+    UartInit(PBCLK_F_HZ, 115200);
+
+    printf("SIE - Project 0 demo \n\r");
+    printf("%s, %s\r\n", __DATE__, __TIME__);
+
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 1;
+
+    /*
+     * ADC Configuration 
+     * 
+     * Source: Chan 0, Source: Timer3 
+     */
+    ADCconfig(0, SrcTimer3, 0);
+    /*
+     * Set Timer3 to run at required sampling frequency 
+     */
+    TypeBTimer16bitSetFreq(Timer3, SampFreq);
+    Timer3Start();
+
+    /*
+     * Configure PWM
+     *
+     * PWM frequency is PWMFreq 
+     */
+    PWMconfigFreq(PWMFreq);
+    Timer2Start();
+
+    /*
+     * Print the system configuration 
+     *
+     */
+    printf("Sampling freq: %d\r\nPWM freq.: %d\r\n\n",SampFreq, PWMFreq);
+    
+    /*
+     * Set the transfer function to point to the desired function.
+     */
+    transferFunction = tf_avgNSamples;
+    
+    /****************************************************************
+     * 
+     * Main cycle
+     */
+    while (1) {
+        uint16_t res; 
+
+        /* Read ADC */
+        res = ADCReadRetentive();
         
-        Timer2ClearEOC();
+        /* Compute output val */
+        uint16_t PWMval = (*transferFunction)(res);
+        
+        /* Set output */
+        PWMsetDutyCycle(PWMval);
+        
+        /* Toggle control pin at sampling frequency */
+        LATAINV = 0x0008;
     }
 }
 

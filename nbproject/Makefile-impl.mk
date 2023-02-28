@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=SIE_Proj0_demo.X
+PROJECTNAME=SIE_projeto0
 
 # Active Configuration
 DEFAULTCONF=default

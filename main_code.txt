@@ -79,3 +79,26 @@
         /* Toggle control pin at sampling frequency */
         LATAINV = 0x0008;
     }
+
+
+
+===========================TIMER=============================================
+    int cont = 0;
+    TypeBTimer16bitSetFreq(2, 20);
+    // Set RA3 as output
+    TRISAbits.TRISA3 = 0;
+    UartInit(PBCLK_F_HZ, 115200L);
+    TMR2 = 0;
+    PutChar('x');
+    
+    while(1){
+        PutChar('y');
+        while(Timer2GetEOC() == 0);
+        PutChar('z');
+        cont++;
+        if(cont % 10 == 0){
+            PORTAbits.RA3 = !PORTAbits.RA3;
+        }
+        
+        Timer2ClearEOC();
+    }

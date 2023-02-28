@@ -10,8 +10,9 @@
 #include "timer.h"
 
 
-//extern const uint32_t TypeBTimerPreScalerVals[] = {1,2,4,8,16,32,64,256};
+
 const uint32_t TypeBTimerPreScalerVals[] = {1,2,4,8,16,32,64,256};
+//const uint32_t TypeBTimerPreScalerVals[] = {1,2,4,8,16,32,64,256};
 
 
 void Timer2Setup(bool TimerOn32bit, TypeBTimerPreScalers_t Prescaler, uint32_t PR2val){
@@ -33,6 +34,7 @@ void Timer2Setup(bool TimerOn32bit, TypeBTimerPreScalers_t Prescaler, uint32_t P
         //T2CONbits.TCS = 0;
         //T2CONbits.TGATE = 0;
         PR2 = PR2val;
+        T2CONbits.TCKPS = Prescaler;
     }
 }
 
@@ -151,7 +153,7 @@ int TypeBTimer16bitSetFreq(TypeBTimerNo_t TimerNo, uint32_t Freq_Hz){
     
     int pres_vals[] = {1,2,4,8,16,32,64,256};
     int i,kpres;
-    kpres = PBCLK_F_HZ / (65537 * Freq_Hz);
+    kpres = PBCLK_F_HZ / (65536 * Freq_Hz);
     for( i = 0 ; i < 7 ; i++){
         if( kpres < pres_vals[i] ){
             kpres = pres_vals[i];
@@ -159,18 +161,23 @@ int TypeBTimer16bitSetFreq(TypeBTimerNo_t TimerNo, uint32_t Freq_Hz){
                 case 2:
                     T2CONbits.TCKPS = i;
                     PR2 = ((PBCLK_F_HZ / kpres) / Freq_Hz) - 1;
+                    Timer2Start();
+                    //PutChar('2');
                     break;
                 case 3:
                     T3CONbits.TCKPS = i;
                     PR3 = ((PBCLK_F_HZ / kpres) / Freq_Hz) - 1;
+                    Timer3Start();
                     break;
                 case 4:
                     T4CONbits.TCKPS = i;
                     PR4 = ((PBCLK_F_HZ / kpres) / Freq_Hz) - 1;
+                    T4CONbits.TON = 1;
                     break;
                 case 5:
                     T5CONbits.TCKPS = i;
                     PR5 = ((PBCLK_F_HZ / kpres) / Freq_Hz) - 1;
+                    T5CONbits.TON = 1;
                     break;
                 default:
                     return NOK;

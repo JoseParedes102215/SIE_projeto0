@@ -41,7 +41,7 @@ typedef enum {
 /**
  * Divider values for the Prescaler register in Type B Timers. 
  */
-extern const uint32_t TypeBTimerPreScalerVals[]; 
+extern const uint32_t TypeBTimerPreScalerVals[];
 
 /*
  * Functions

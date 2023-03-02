@@ -28,14 +28,14 @@
 /* Configuration bits */
 
 //#include "../SIE_Proj0_demo.X/../common/config_bits.h"
-#include "../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/config_bits.h"
-#include "../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/UART/uart.h"
-//#include "../common/config_bits.h"
+//#include "../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/config_bits.h"
+//#include "../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/UART/uart.h"
+#include "../common/config_bits.h"
 #include <xc.h>
 #include <stdint.h>
 #include <stdio.h>
 
-//#include "../common/UART/uart.h"
+#include "../common/UART/uart.h"
 //#include "../SIE_Proj0_demo.X/../common/UART/uart.h"
 #include "pic32conf.h"
 #include "timer.h" 
@@ -66,8 +66,9 @@ uint16_t tf_direct(uint16_t inVal);
  */
 uint16_t tf_avgNSamples(uint16_t inVal);
 
-int main(void) {
-  /*
+int main(void) { 
+   
+     /*
      * Function pointer to select the transfer functions
      */
     
@@ -146,7 +147,11 @@ int main(void) {
         /* Toggle control pin at sampling frequency */
         LATAINV = 0x0008;
     }
+
+
 }
+        
+
 
 
 /**

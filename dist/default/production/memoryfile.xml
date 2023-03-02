@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/SIE_projeto0.production.elf">                 
+  <executable name="dist/default/production/SIE_Proj0_demo.X.production.elf">                 
     <memory name="program">                 
       <units>bytes</units>                 
       <length>531968</length>                 
-      <used>19980</used>                     
-      <free>511988</free>                     
+      <used>19828</used>                     
+      <free>512140</free>                     
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 

@@ -2,8 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
-
+        <group>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/mainProj0.c</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/pic32conf.c</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/analog.h</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/timer.c</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/PWM.h</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/main_code.txt</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/analog.c</file>
+            <file>file:/C:/Users/anton/Desktop/Ensino_Superior/Mestrado/Aveiro_2022-2023/2_semestre/SIE/pratica/Projeto_0/Microchip_X/SIE_Proj0_demo.X/PWM.c</file>
         </group>
     </open-files>
 </project-private>

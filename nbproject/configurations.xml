@@ -8,8 +8,8 @@
       <itemPath>analog.h</itemPath>
       <itemPath>PWM.h</itemPath>
       <itemPath>pic32conf.h</itemPath>
-      <itemPath>../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/UART/uart.h</itemPath>
-      <itemPath>../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/config_bits.h</itemPath>
+      <itemPath>../common/config_bits.h</itemPath>
+      <itemPath>../common/UART/uart.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,7 +23,8 @@
       <itemPath>timer.c</itemPath>
       <itemPath>analog.c</itemPath>
       <itemPath>main_code.txt</itemPath>
-      <itemPath>../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common/UART/uart.c</itemPath>
+      <itemPath>../common/UART/uart.c</itemPath>
+      <itemPath>PWM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -32,8 +33,8 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../common/UART</Elem>
     <Elem>../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common</Elem>
+    <Elem>../common</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -56,7 +57,6 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>analog.o</linkerLibFileItem>
             <linkerLibFileItem>PWM.o</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
@@ -224,6 +224,7 @@
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="lastid" value=""/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>

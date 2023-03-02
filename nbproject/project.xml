@@ -9,8 +9,8 @@
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
-                <sourceRootElem>../common/UART</sourceRootElem>
                 <sourceRootElem>../../../../OneDrive - Universidade de Aveiro/UNI/5ano/2semestre/SIE/Pratica/Microchip_X/common</sourceRootElem>
+                <sourceRootElem>../common</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -64,6 +64,6 @@ uint16_t ADCReadManual(void){
 uint16_t ADCReadRetentive(void){
         AD1CON1bits.ASAM = 1; // Start conversion
         //while (IFS1bits.AD1IF == 0);
-        while(AD1CON1bits.DONE == 0);
+        while(IFS1bits.AD1IF == 0);
         return ADC1BUF0;
 }

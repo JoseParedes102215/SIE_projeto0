@@ -67,6 +67,8 @@ uint16_t tf_direct(uint16_t inVal);
 uint16_t tf_avgNSamples(uint16_t inVal);
 
 int main(void) { 
+   //PWMconfigFreq(100); // POR ESTA ORDEM !!!!!
+   //PWMsetDutyCycle(50);
    
      /*
      * Function pointer to select the transfer functions
@@ -103,19 +105,21 @@ int main(void) {
      * Source: Chan 0, Source: Timer3 
      */
     ADCconfig(0, SrcTimer3, 0);
+    ADCon();
     /*
      * Set Timer3 to run at required sampling frequency 
      */
     TypeBTimer16bitSetFreq(Timer3, SampFreq);
-    Timer3Start();
+    //Timer3Start();
 
     /*
      * Configure PWM
      *
      * PWM frequency is PWMFreq 
      */
+    TypeBTimer16bitSetFreq(2,PWMFreq);
+    //Timer2Start();
     PWMconfigFreq(PWMFreq);
-    Timer2Start();
 
     /*
      * Print the system configuration 
@@ -132,23 +136,15 @@ int main(void) {
      * 
      * Main cycle
      */
-    while (1) {
-        uint16_t res; 
-
-        /* Read ADC */
+    while(1){
+        uint16_t res;
         res = ADCReadRetentive();
-        
-        /* Compute output val */
+        printf("%u\n",res);
         uint16_t PWMval = (*transferFunction)(res);
-        
-        /* Set output */
         PWMsetDutyCycle(PWMval);
-        
-        /* Toggle control pin at sampling frequency */
         LATAINV = 0x0008;
     }
-
-
+  
 }
         
 

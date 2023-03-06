@@ -54,6 +54,7 @@ void ADCon(void){
  */
 uint16_t ADCReadManual(void){
     // por enquanto nada
+    // ler página 31 do manual da adc
 }
 
 /**
@@ -63,7 +64,9 @@ uint16_t ADCReadManual(void){
  */
 uint16_t ADCReadRetentive(void){
         AD1CON1bits.ASAM = 1; // Start conversion
+        IFS1bits.AD1IF = 0; // não deves dar reset da flag ?
         //while (IFS1bits.AD1IF == 0);
         while(IFS1bits.AD1IF == 0);
+        
         return ADC1BUF0;
 }

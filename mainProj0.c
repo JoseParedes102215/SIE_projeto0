@@ -67,9 +67,15 @@ uint16_t tf_direct(uint16_t inVal);
 uint16_t tf_avgNSamples(uint16_t inVal);
 
 int main(void) { 
-   //PWMconfigFreq(100); // POR ESTA ORDEM !!!!!
-   //PWMsetDutyCycle(50);
-   
+    UartInit(PBCLK_F_HZ, 115200);
+    int tensao;
+    uint16_t res;
+    const int SampFreq = 200;
+    //int SampFreq;       /**< Sampling frequency (in Hz) */
+    const int PWMFreq = 2000;       /**< PWM frequency (in Hz) */
+    
+    TRISAbits.TRISA3 = 0;
+    LATAbits.LATA3 = 1;
      /*
      * Function pointer to select the transfer functions
      */
@@ -81,45 +87,34 @@ int main(void) {
      * Definition of constants 
      *
      */
-    const int SampFreq = 050;       /**< Sampling frequency (in Hz) */
-    const int PWMFreq = 2000;       /**< PWM frequency (in Hz) */
+    //const int SampFreq = 180;       /**< Sampling frequency (in Hz) */
+    /* Configure UART */
+   
+    
+    
     
     /************************************************************** 
      * 
      * Configuration section
      * 
      */
-
-    /* Configure UART */
-    UartInit(PBCLK_F_HZ, 115200);
-
     printf("SIE - Project 0 demo \n\r");
     printf("%s, %s\r\n", __DATE__, __TIME__);
-
-    TRISAbits.TRISA3 = 0;
-    LATAbits.LATA3 = 1;
-
-    /*
+    //printf("Insira a Frequencia de amostragem adequada: \r");
+    //scanf("%d",&SampFreq);
+        /*
      * ADC Configuration 
      * 
      * Source: Chan 0, Source: Timer3 
      */
-    ADCconfig(0, SrcTimer3, 0);
+    ADCconfig(0, SrcTimer3, 0); // SampleTime = 0 TAD(Not allowed)
     ADCon();
     /*
      * Set Timer3 to run at required sampling frequency 
      */
     TypeBTimer16bitSetFreq(Timer3, SampFreq);
     //Timer3Start();
-
-    /*
-     * Configure PWM
-     *
-     * PWM frequency is PWMFreq 
-     */
-    TypeBTimer16bitSetFreq(2,PWMFreq);
-    //Timer2Start();
-    PWMconfigFreq(PWMFreq);
+    PWMconfigFreq(PWMFreq); // O PWMconfigFreq já configura o TypeBTimer16bitSetFreq(2,PWMFreq);
 
     /*
      * Print the system configuration 
@@ -137,12 +132,14 @@ int main(void) {
      * Main cycle
      */
     while(1){
-        uint16_t res;
+        
         res = ADCReadRetentive();
-        printf("%u\n",res);
-        uint16_t PWMval = (*transferFunction)(res);
+        tensao = (res * 33 + 511)/1023; // 1023; atualização para tensão entre [0,3.3]
+        printf("%u\r\n",tensao);
+        
+        uint16_t PWMval = (*transferFunction)(res); // retorna valor entre [0 100] com base em 3 medias moveis
         PWMsetDutyCycle(PWMval);
-        LATAINV = 0x0008;
+        LATAINV = 0x0008; //  Toggle control pin at sampling frequency 
     }
   
 }

@@ -30,7 +30,6 @@ void Timer2Setup(bool TimerOn32bit, TypeBTimerPreScalers_t Prescaler, uint32_t P
         T2CONbits.TCKPS = Prescaler;
        }
     else{
-        T2CONbits.T32 = 1; 
         //T2CONbits.TCS = 0;
         //T2CONbits.TGATE = 0;
         PR2 = PR2val;
